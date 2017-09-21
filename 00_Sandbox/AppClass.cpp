@@ -7,7 +7,7 @@ void Application::InitVariables(void)
 	sRoute += m_pSystem->m_pFolder->GetFolderAudio();
 
 #pragma region Make some meshes, add them to a group and add the group to a model
-	/*
+	
 	Mesh* pMesh1 = new Mesh();
 	Mesh* pMesh2 = new Mesh();
 	Mesh* pMesh3 = new Mesh();
@@ -26,26 +26,26 @@ void Application::InitVariables(void)
 	m_pModel1 = new Simplex::Model();
 	m_pModel1->AddGroup(pGroup1);
 	m_pModel1->AddGroup(pGroup2);
-	*/
+	
 #pragma endregion
 #pragma region Load Model and change its rendering properties
-	/*
+	
 	m_pModel1 = new Simplex::Model();
 	m_pModel1->Load("Macross\\YF19.BTO");
 	m_pModel1->ChangeMeshOptions(MeshOptions(IDENTITY_M4, SOLID | WIRE), -1, -1);
-	*/
+	
 #pragma endregion
 #pragma region Load Model and change its materials
-	/*
+	
 	m_pModel1 = new Simplex::Model();
 	m_pModel1->Load("Macross\\YF19.BTO");
 	//m_pModel1->ChangeMeshOptions(MeshOptions(IDENTITY_M4, SOLID | WIRE), -1, -1);
 	m_pMatMngr->AddMaterial("Cloud.png", "Cloud.png");
 	m_pModel1->ChangeMaterialOfGroup("Cloud.png", "ALL");
-	*/
+	
 #pragma endregion
 #pragma region Load Model disconect and change its materials
-	/*
+	
 	m_pModel1 = new Simplex::Model();
 	m_pModel1->Load("Macross\\YF19.BTO");
 	//m_pModel1->ChangeMeshOptions(MeshOptions(IDENTITY_M4, SOLID | WIRE), -1, -1);
@@ -53,21 +53,21 @@ void Application::InitVariables(void)
 	m_pModel1->DuplicateMaterialsUnique(-1, "_copy"); //dupliocate existing materials
 	m_pModel1->CreateMaterials(); //duplicate one per mesh
 	m_pModel1->ChangeMaterialOfGroup("Cloud.png", "ALL");
-	*/
+	
 #pragma endregion
 #pragma region Load Model and duplicate onto another one
-	/*
+	
 	m_pModel3 = new Simplex::Model();
 	m_pModel3->Load("Macross\\YF19.BTO");
 	m_pModel1 = new Simplex::Model();
 	m_pModel1->Instance(m_pModel3, "_copy_");
-	*/
+	
 #pragma endregion
 #pragma region Load Model
-	/*
+	
 	m_pModel1 = new Simplex::Model();
 	m_pModel1->Load("Macross\\YF19.BTO");
-	*/
+	
 #pragma endregion
 #pragma region Sandbox
 	//Background music
