@@ -34,7 +34,9 @@ void Application::Display(void)
 	matrix4 m4Projection = m_pCameraMngr->GetProjectionMatrix();
 	matrix4 m4View = m_pCameraMngr->GetViewMatrix();
 
-	m_m4Object1 = m_m4Object1 * glm::rotate(matrix4(),.1f,AXIS_X);
+	//m_m4Object1 = m_m4Object1 * glm::rotate(matrix4(),.1f,AXIS_X);
+
+
 
 	//m_pMesh->Render(m_pCameraMngr->GetProjectionMatrix(), m_pCameraMngr->GetViewMatrix(), ToMatrix4(m_qArcBall));
 	m_pMesh->Render(m4Projection, m4View, m_m4Object1);
