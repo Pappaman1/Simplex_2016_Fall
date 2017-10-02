@@ -17,7 +17,8 @@ class Application
 	matrix4 m_m4Object1;
 	MyMesh* m_pMesh = nullptr;
 	MyMesh* m_pMesh1 = nullptr;
-
+	// adding positions to vector
+	std::vector<glm::vec3> pos;
 	String m_sProgrammer = "Zachary Winnewisser - zmw7710@rit.edu";
 private:
 	static ImGuiObject gui; //GUI object

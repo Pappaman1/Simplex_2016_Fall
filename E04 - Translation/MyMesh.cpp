@@ -196,7 +196,7 @@ void MyMesh::GenerateCube(float a_fSize, vector3 a_v3Color)
 	vector3 point6(fValue, fValue, -fValue); //6
 	vector3 point7(-fValue, fValue, -fValue); //7
 
-											  //F
+	//F
 	AddQuad(point0, point1, point3, point2);
 
 	//B
