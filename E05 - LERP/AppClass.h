@@ -12,9 +12,10 @@ Date: 2017/05
 
 class Application
 {
-	String m_sProgrammer = "Alberto Bobadilla - labigm@rit.edu";
+	String m_sProgrammer = "Zachary Winnewisser - zmw7710@rit.edu";
 	std::vector<vector3> m_stopsList;
 	Simplex::Model* m_pModel = nullptr;
+	
 private:
 	static ImGuiObject gui; //GUI object
 	
@@ -36,7 +37,7 @@ private:
 	CameraManager* m_pCameraMngr = nullptr; //Singleton for the camera manager
 	ControllerInput* m_pController[8]; //Controller
 	uint m_uActCont = 0; //Active Controller of the Application
-
+	static float iterativeVariable;
 public:
 #pragma region Constructor / Run / Destructor
 	/*

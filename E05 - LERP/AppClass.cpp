@@ -1,8 +1,11 @@
 #include "AppClass.h"
+
+float Application::iterativeVariable;
+
 void Application::InitVariables(void)
 {
 	////Change this to your name and email
-	//m_sProgrammer = "Alberto Bobadilla - labigm@rit.edu";
+	//m_sProgrammer = "Zachary Winnewisser - zmw7710@rit.edu";
 
 	////Alberto needed this at this position for software recording.
 	//m_pWindow->setPosition(sf::Vector2i(710, 0));
@@ -29,6 +32,9 @@ void Application::InitVariables(void)
 	m_stopsList.push_back(vector3(5.0f, 2.0f, -5.0f));
 
 	m_stopsList.push_back(vector3(1.0f, 3.0f, -5.0f));
+	m_stopsList.push_back(vector3(-4.0f, -2.0f, 5.0f));
+	iterativeVariable = 0;
+
 }
 void Application::Update(void)
 {
@@ -60,15 +66,41 @@ void Application::Display(void)
 
 
 
-
+	
 	//your code goes here
 	v3CurrentPos = vector3(0.0f, 0.0f, 0.0f);
 	//-------------------
+	static DWORD startTime = GetTickCount(); //start timer
+	DWORD currentTime = GetTickCount(); //current time
+	float maxTime = 2.0f;
+	float timeSinceStart = (currentTime - startTime) / 1000.0f; //self explanatory
+	float mapValue = MapValue(timeSinceStart, 0.0f, maxTime, 0.0f, 1.0f);
+	if (iterativeVariable >= m_stopsList.size() - 1)
+	{
+		iterativeVariable = 0;
+	}
+	
+	
+	v3CurrentPos = glm::lerp(m_stopsList[iterativeVariable],m_stopsList[iterativeVariable + 1], mapValue);
+	
+	std::cout << mapValue << std::endl;
+
+	if (mapValue >= 0.99f)
+	{
+		startTime = GetTickCount();
+		iterativeVariable += 1;
+	}
 	
 
+	if (timeSinceStart > maxTime)
+	{
+		startTime = GetTickCount();
+	}
+		
+	matrix4 m4Model = glm::translate(IDENTITY_M4, v3CurrentPos);
 
 	
-	matrix4 m4Model = glm::translate(v3CurrentPos);
+	
 	m_pModel->SetModelMatrix(m4Model);
 
 	m_pMeshMngr->Print("\nTimer: ");//Add a line on top
