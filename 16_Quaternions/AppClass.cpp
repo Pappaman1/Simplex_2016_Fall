@@ -46,12 +46,11 @@ void Application::Update(void)
 #pragma region translate vector orientation into a matrix
 	if (false)
 	{
-		matrix4 m4OrientX = glm::rotate(IDENTITY_M4, m_v3Orientation.x, vector3(1.0f, 0.0f, 0.0f));
-		matrix4 m4OrientY = glm::rotate(IDENTITY_M4, m_v3Orientation.y, vector3(0.0f, 1.0f, 0.0f));
-		matrix4 m4OrientZ = glm::rotate(IDENTITY_M4, m_v3Orientation.z, vector3(0.0f, 0.0f, 1.0f));
+		matrix4 m4Rotation = glm::rotate(IDENTITY_M4, fTimer * 60.0f, vector3(0.0f, 0.0f, 1.0f));
+		static quaternion q1 = glm::angleAxis(0.0f, vector3(0.0f, 0.0f, 1.0f));
+		q1 = q1 * glm::angleAxis(fTimer, vector3(0.0f, 0.0f, 1.0f));
+		matrix4 m4Model = ToMatrix4(q1);
 
-		matrix4 m4Orientation = m4OrientX * m4OrientY * m4OrientZ;
-		m_m4Steve = glm::toMat4(m_qOrientation);
 	}
 #pragma endregion
 #pragma region orientation using quaternions
