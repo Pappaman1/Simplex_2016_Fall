@@ -20,7 +20,6 @@ class Application
 	matrix4 m_mModel; //Model to world matrix for Steve
 	
 	MyMesh* m_pMesh = nullptr; //Primitive to display
-	MyMesh* m_pMesh2 = nullptr; //Primitive to display
 	MyCamera* m_pCamera = nullptr; //camera we will use in this application
 
 	String m_sProgrammer = "Alberto Bobadilla - labigm@rit.edu";
